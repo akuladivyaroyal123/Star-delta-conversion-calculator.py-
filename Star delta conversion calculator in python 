@@ -1,0 +1,42 @@
+import math
+
+print("Star-Delta Conversion Calculator")
+print("1. Star to Delta")
+print("2. Delta to Star")
+
+choice = int(input("Enter your choice (1 or 2): "))
+
+if choice == 1:
+    # Star to Delta
+    R1 = float(input("Enter R1: "))
+    R2 = float(input("Enter R2: "))
+    R3 = float(input("Enter R3: "))
+
+    R12 = R1 + R2 + (R1 * R2 / R3)
+    R23 = R2 + R3 + (R2 * R3 / R1)
+    R31 = R3 + R1 + (R3 * R1 / R2)
+
+    print("\nDelta Resistances:")
+    print("R12 =", R12, "ohms")
+    print("R23 =", R23, "ohms")
+    print("R31 =", R31, "ohms")
+
+elif choice == 2:
+    # Delta to Star
+    R12 = float(input("Enter R12: "))
+    R23 = float(input("Enter R23: "))
+    R31 = float(input("Enter R31: "))
+
+    total = R12 + R23 + R31
+
+    R1 = (R12 * R31) / total
+    R2 = (R12 * R23) / total
+    R3 = (R23 * R31) / total
+
+    print("\nStar Resistances:")
+    print("R1 =", R1, "ohms")
+    print("R2 =", R2, "ohms")
+    print("R3 =", R3, "ohms")
+
+else:
+    print("Invalid choice!")
